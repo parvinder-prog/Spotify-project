@@ -68,42 +68,46 @@ const playMusic = (track, pause = false) => {
 
 // Fetch albums (folders with info.json)
 async function displayAlbums() {
-    let res = await fetch("songs/");
-    let text = await res.text();
-    let tempDiv = document.createElement("div");
-    tempDiv.innerHTML = text;
-    let anchors = tempDiv.querySelectorAll("a");
+    let res = await fetch("songs/albums.json");
+    let folders = await res.json();
 
     let cardContainer = document.querySelector(".cardContainer");
     cardContainer.innerHTML = "";
 
-    for (const a of anchors) {
-        if (a.href.includes("/songs/")) {
-            let folder = a.href.split("/")[4];
-            if (folder) {
-                try {
-                    let infoRes = await fetch(`songs/${folder}/info.json`);
-                    if (!infoRes.ok) throw new Error('info.json not found');
-                    let info = await infoRes.json();
+    for (const folder of folders) {
+        try {
+            let infoRes = await fetch(`songs/${folder}/info.json`);
+            if (!infoRes.ok) throw new Error(`info.json missing in ${folder}`);
+            let info = await infoRes.json();
 
-                    cardContainer.innerHTML += `
-                    <div class="card" data-folder="${folder}">
-                        <div class="play">
-                            <svg width="35" height="35" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50" fill="green" />
-                                <polygon points="40,30 70,50 40,70" fill="black" />
-                            </svg>
-                        </div>
-                        <img src="songs/${folder}/${info.cover}" alt="Cover image">
-                        <h3>${info.title}</h3>
-                        <p>${info.description}</p>
-                    </div>`;
-                } catch (error) {
-                    console.error(`Error loading info.json for folder "${folder}":`, error.message);
-                }
-            }
+            cardContainer.innerHTML += `
+            <div class="card" data-folder="${folder}">
+                <div class="play">
+                    <svg width="35" height="35" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50" fill="green" />
+                        <polygon points="40,30 70,50 40,70" fill="black" />
+                    </svg>
+                </div>
+                <img src="songs/${folder}/${info.cover}" alt="${info.title}">
+                <h3>${info.title}</h3>
+                <p>${info.description}</p>
+            </div>`;
+        } catch (error) {
+            console.error(error.message);
         }
     }
+
+    // Click handlers
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", async () => {
+            await getSongs(card.dataset.folder);
+            if (songs.length > 0) {
+                playMusic(songs[0]);
+            }
+        });
+    });
+}
+
 
     // Attach click events to album cards
     document.querySelectorAll(".card").forEach(card => {
