@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Either link your favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <title>Spotify - Web Player: Music for everyone</title>
+</head>
+
+<body>
+    <div class="container bg-black">
+
+        <div class="left">
+            <div class="close">
+                <img src="img/cancel.png" alt="cancel-img" class="invert cancel">
+            </div>
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="logo">
+                    <img class="invert spotify-svg" src="img/spotify.svg" alt="spotify">
+                </div>
+                <ul>
+                    <li><img class="invert" src="img/home.svg" alt="Home">Home</li>
+                    <li><img class="invert" src="img/search.svg" alt="Search">Search</li>
+                </ul>
+            </div>
+
+            <div class="library bg-grey rounded m-1 p-1">
+                <ul class="flex">
+                    <li>
+                        <h4>Your Library</h4>
+                    </li>
+                    <li class="plus-icon none">+</li>
+                </ul>
+                <div class="playlist another-grey m-1 p-1 none">
+                    <ul>
+                        <li class="bold-font">Create your first playlist</li>
+                        <li>It's easy, we'll help you</li>
+                        <button class="playlist-btn p-1 bold-font">Create playlist</button>
+                    </ul>
+                </div>
+
+                <!-- <div class="podcast another-grey m-1 p-1 rounded">
+                        <ul>
+                            <li class="headings bold-font">Create your first playlist</li>
+                            <li class="subheadings bold-font">It's easy, we'll help you</li>
+                            <button class="podcast-btn p-1 bold-font">Create playlist</button>
+                        </ul>
+                    </div>  -->
+
+
+                <div class="songList">
+                    <ul>
+                        <!-- this code wrrite in the js file so don't delete this -->
+                    </ul>
+                </div>
+
+                <div class="footer flex">
+                    <div><a href=""><span>Legal</span></a></div>
+                    <div><a href=""><span>Privacy Center</span></a></div>
+                    <div><a href=""><span>Privacy Policy</span></a></div>
+                    <div><a href=""><span>Cookies</span></a></div>
+                    <div><a href=""><span>About Ads</span></a></div>
+                    <div><a href=""><span class="none">Accessibility</span></a></div>
+                </div>
+
+                <div class="capsule p-1">
+                    <ul class="flex globe">
+                        <li><img src="img/globe-icon.svg" alt="globe-icon"></li>
+                        <li class="bold-font">English</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right bg-grey rounded p-1 m-1">
+            <div class="right-content">
+                <div class="header">
+                    <div class="nav flex">
+                        <div class="hamburgerContainer">
+                            <img src="img/burger-bar.png" alt="ham-burger-img" class="invert hamburger">
+                        </div>
+                        <input type="text" placeholder="What do you want to play?" class="nav-input none">
+                        <span class="grey-text premium p-1 none">Premium Support Downloader</span>
+
+                        <div class="installer p-1 bold-font flex">
+                            <img src="img/installer.svg" alt="installer-img" class="invert none">
+                            <a href=""><span class="grey-text none">Install App</span></a>
+                        </div>
+
+                        <div class="buttons flex">
+                            <button class="p-1 signup bold-font">Signup</button>
+                            <button class="p-1 login bold-font">
+                                Login
+                                <!-- You can optionally create a div inside here if you want -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW spotify-playlist div -->
+                <div class="spotifyPlaylist m-1 p-1">
+                    <h2>Trending Songs</h2>
+                    <!-- div 1 -->
+                    <div class="cardContainer">
+
+                        <!-- this info is write in js -->
+
+                    </div> <!-- END cardContainer div -->
+
+                </div> <!-- END spotify-playlist div -->
+
+                <!-- start artists playlist -->
+
+                <h2 class="main-headings">Popular Artists</h2>
+                <div class="singersContainer">
+                    <!-- singer 1 box -->
+                    <div class="singer">
+                        <img src="img/nimrit" alt="img -1">
+                        <h3> Nimrit Khaira</h3>
+                        <p>Artist</p>
+                    </div>
+
+                    <!-- singer 2 box -->
+                    <div class="singer ">
+                        <img src="img/ammy.jpg" alt="img -1">
+                        <h3>Ammy Virk </h3>
+                        <p>Artist</p>
+                    </div>
+
+                    <!-- singer 3 box -->
+                    <div class="singer">
+                        <img src="img/sunanda.jpg" alt="img -1">
+                        <h3>Sunanda Sharma</h3>
+                        <p>Artist</p>
+                    </div>
+
+                    <!-- singer 4 box -->
+                    <div class="singer">
+                        <img src="img/diljit.jpg" alt="img -1">
+                        <h3>Diljit Dosanjh</h3>
+                        <p>Artist</p>
+                    </div>
+                </div> <!-- end singersContainer div -->
+            </div>
+        </div> <!-- end right div -->
+
+        <div class="playbar">
+            <div class="seekbar">
+                <div class="circle">
+                </div>
+            </div>
+
+            <div class="abovebar flex">
+                <div class="songinfo">
+                    <!-- This info is write in the js file -->
+                </div>
+
+                <div class="songButtons flex justify-content">
+                    <img src="img/previous.svg" alt="previous-song" id="previous" class="invert">
+                    <img src="img/play.png" alt="play-song" id="play" class="invert">
+                    <img src="img/next.svg" alt="next-song" id="next" class="invert">
+                </div>
+
+                <div class="timevol">
+                    <div class="songtime">
+                        <!-- This time is also write in the js file -->
+                    </div>
+                    <div class="volume">
+                        <img src="img/medium-volume.png" alt="" class="invert">
+                        <div class="range">
+                            <input type="range" name="volume" id="">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>
