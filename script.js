@@ -27,6 +27,7 @@ async function getSongs(folder) {
             <img src="img/music-player.png" alt="music-img" class="invert music-img">
             <div class="info">
                 <div>${song.replaceAll("%20", " ")}</div>
+                 <div>Song-Artist</div>
             </div>
             <div class="playnow">
                 <span>Play now</span>
